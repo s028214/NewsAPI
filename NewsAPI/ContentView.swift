@@ -8,22 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var json = "Loading..."
+    @State var data = FetchData()
+
     
     var body: some View {
-        VStack {
-            Text(json)
-        } .task{
-            let url = URL(string: "https://newsapi.org/v2/everything?q=ukraine&from=2024-12-00&language=en&apiKey=9462521701f04833815aaf2d09f76bcb")!
-
-              let (data, _) = try! await URLSession.shared.data(from: url)
-           
-              print(String(decoding: data, as: UTF8.self))
+        ZStack {
+            /*
+            Rectangle()
+                .foregroundColor(Color.gray.opacity(0.3))
+                .edgesIgnoringSafeArea(.all)
+             */
+            VStack{
+                ScrollView{
+                    ForEach(data.response.articles) {
+                        a in
+                        VStack (alignment: .leading, content: {
+                            Text(a.title ?? "[NO TITLE]")
+                                .font(.title)
+                                .bold()
+                            
+                            Spacer()
+                            
+                            Text(a.author ?? "N/A")
+                                .font(.subheadline)
+                            
+                               
+                            Text(a.description ?? "[N/A]")
+                                .font(.title2)
+                           
+                        }) .padding(.all)
+                    }
+                }
+                VStack {
+                    Text("Total Results: \(data.response.totalResults)")
+                        .font(.title)
+                }.bold()
+                .task{
+                    await data.getData()
+                }
+                .padding()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+ 
