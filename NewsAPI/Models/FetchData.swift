@@ -11,7 +11,7 @@ struct FetchData{
     var response: Response = Response()
     
     mutating func getData() async{
-        let URLString = "//FILL IN"
+        let URLString = "https://newsapi.org/v2/everything?q=ukraine&from=2024-12-00&language=en&apiKey=9462521701f04833815aaf2d09f76bcb"
         
         guard let url = URL(string: URLString) else {return}
         
