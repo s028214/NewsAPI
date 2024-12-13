@@ -2,7 +2,7 @@
 //  FetchData.swift
 //  NewsAPI
 //
-//  Created by Mason Zhu (student LM) on 12/12/24.
+//  Created by Mason Z. on 12/12/24.
 //
 
 import Foundation
@@ -33,6 +33,8 @@ struct Article: Codable {
     var title: String? 
     var author: String?
     var description: String?
+    var url: String? 
+    var urlToImage: URL?
 }
 
 extension Article: Identifiable {

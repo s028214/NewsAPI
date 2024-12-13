@@ -2,7 +2,11 @@
 //  ViewState.swift
 //  NewsAPI
 //
-//  Created by Mason Zhu (student LM) on 12/13/24.
+//  Created by Mason Z. on 12/13/24.
 //
 
 import Foundation
+
+enum ViewState{
+    case articleList, webView
+}

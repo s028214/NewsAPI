@@ -2,7 +2,7 @@
 //  NewsAPIApp.swift
 //  NewsAPI
 //
-//  Created by Mason Z. (student LM) on 12/10/24.
+//  Created by Mason Z. on 12/10/24.
 //
 
 import SwiftUI

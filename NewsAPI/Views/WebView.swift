@@ -2,7 +2,7 @@
 //  WebView.swift
 //  JSON Decoding 1
 //
-//  Created by Swope, Thomas on 12/16/21.
+//  Inital Credits: S. Thomas on 12/16/21.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct SwiftUIWebView : UIViewRepresentable{
     let urlString: String
     
     func makeUIView(context: Context) -> WKWebView {
-        var prefs = WKWebpagePreferences()
+        let prefs = WKWebpagePreferences()
         prefs.allowsContentJavaScript = true
         let config = WKWebViewConfiguration()
         config.defaultWebpagePreferences = prefs
